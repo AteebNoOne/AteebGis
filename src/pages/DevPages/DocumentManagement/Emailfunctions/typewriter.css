@@ -1,0 +1,44 @@
+@keyframes typing {
+  from {
+    width: 0;
+  }
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: 0.15em solid #00000085;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: 0.15em;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #000;
+  }
+}
+
+.greenText {
+  color: green;
+}
+.redText {
+  color: red;
+}
+.orangeText {
+  color:orange;
+}
+.blueText{
+  color: blue;
+}
+.purpleText{
+  color: purple;
+}

@@ -1,0 +1,36 @@
+.connecting-text {
+    font-size: 16px;
+    color: #007bff;
+    margin-bottom: 10px;
+    /* Add any other styles you want for the connecting text */
+
+    /* Animation */
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    /* Infinite loop */
+}
+
+@keyframes fade {
+    0%,
+    100% {
+        opacity: 0;
+        /* Start and end with 0 opacity (invisible) */
+    }
+
+    50% {
+        opacity: 1;
+        /* Middle of the animation, 100% opacity (visible) */
+    }
+}
+
+
+/* Style for error text */
+.error-text {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #ff0000;
+    /* Change the color to your desired color */
+    /* Add any other styles you want for the error text */
+}
