@@ -44,11 +44,6 @@ const logIn = () => {
         path: "/dashboard/forms",
         icon: icon("ic_forms.svg"),
       },
-      // {
-      //   title: "create Menu",
-      //   path: "/dashboard/createMenu",
-      //   icon: icon("ic_forms.svg"),
-      // },
     ];
   } else if (loggedData?.role === "Workflow_Reviewer") {
     return [

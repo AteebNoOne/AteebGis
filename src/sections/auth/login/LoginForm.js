@@ -31,11 +31,9 @@ export default function LoginForm() {
         username: userN,
         password: pass,
       });
-      // console.log(response.data.user); // Handle the response data as needed
       await localStorage.setItem('adminInfo',JSON.stringify(response?.data?.user));
       await localStorage.setItem('loginnn', 'yes');
       navigate('/dashboard/app', { replace: true });
-      // Reset the form
       setUserN('');
       setPass('');
       window.location.reload()

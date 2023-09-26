@@ -10,12 +10,12 @@ import {
     TableHead,
     TableCell,
     TableRow,
-    TableBody,
     Divider,
     Button,
 } from '@mui/material';
 import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
+import DynamicForm from './DynamicForm';
 import axios from 'axios';
 
 const GroupList = ({ groups, onSelectGroup }) => (
@@ -88,8 +88,8 @@ const AdminWorkflowComponent = () => {
             const response = await axios.get(`${apiUrl}/workflow?group_by=${group}`);
             const workflowData = response.data;
             setSelectedGroup(group);
-            setSelectedPrefix(null); // Reset selectedPrefix when a group is selected
-            setFormName(''); // Reset formName
+            setSelectedPrefix(null); 
+            setFormName(''); 
             setWorkflows(workflowData);
         } catch (error) {
             console.error("Error selecting group:", error);
@@ -98,7 +98,7 @@ const AdminWorkflowComponent = () => {
 
     const selectPrefix = (prefix) => {
         setSelectedPrefix(prefix);
-        setFormName('');
+        setFormName(prefix);
     };
 
     const navigateToWorkflowDetails = (form_name) => {
@@ -126,6 +126,9 @@ const AdminWorkflowComponent = () => {
                     </Typography>
                 </Stack>
                 <Card>
+                {selectedGroup || selectedPrefix ? (
+                        <Button onClick={goBack}>Back</Button>
+                    ) : null}
                     {(!selectedGroup && !selectedPrefix) && (
                         <GroupList groups={groups} onSelectGroup={selectGroup} />
                     )}
@@ -133,14 +136,10 @@ const AdminWorkflowComponent = () => {
                         <PrefixList workflows={workflows} onSelectPrefix={selectPrefix} />
                     )}
                     {selectedPrefix && (
-                        <div>
-                            <Typography variant="h5">Selected Form: {formName}</Typography>
-                            {/* Add your form rendering component here */}
-                        </div>
+                       <>
+                       <DynamicForm formName={formName} />
+                       </>
                     )}
-                    {selectedGroup || selectedPrefix ? (
-                        <Button onClick={goBack}>Back</Button>
-                    ) : null}
                 </Card>
             </Container>
         </>
